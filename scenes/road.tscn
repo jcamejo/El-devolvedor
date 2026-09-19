@@ -36,6 +36,17 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_btuie"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgtc5"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_btuie")
+
+[sub_resource type="BoxMesh" id="BoxMesh_c38u8"]
+material = SubResource("StandardMaterial3D_fgtc5")
+size = Vector3(1, 0.1, 1)
+
 [node name="Level" type="Node3D" unique_id=1669373357]
 script = ExtResource("1_72xhj")
 enemy_scene = ExtResource("2_c38u8")
@@ -60,10 +71,18 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5
 light_energy = 1.09
 
 [node name="CameraPivot" type="Marker3D" parent="." unique_id=930599994]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.006085, 5.0360446)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 2.006085, -5.0945992)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1325719996]
-transform = Transform3D(1, 0, 0, 0, 0.98741484, 0.1581515, 0, -0.1581515, 0.98741484, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.9874149, 0.15815152, 0, -0.15815152, 0.9874149, 6.119596e-07, -1, -7)
+
+[node name="RearViewRight" type="Camera3D" parent="CameraPivot" unique_id=1519299671]
+transform = Transform3D(-1, 1.2189147e-09, -3.1996407e-08, -3.8567047e-09, 0.9874149, 0.15815149, 3.17865e-08, 0.15815149, -0.98741496, 1.2960225, -1.0576069, -8.863845)
+visible = false
+
+[node name="RearViewLeft" type="Camera3D" parent="CameraPivot" unique_id=1145668405]
+transform = Transform3D(-1, 1.2189147e-09, -3.1996407e-08, -3.8567047e-09, 0.9874149, 0.15815149, 3.17865e-08, 0.15815149, -0.98741496, -1.0219511, -1.0576069, -8.863845)
+visible = false
 
 [node name="Cylinders" type="Node3D" parent="." unique_id=2021503988]
 
@@ -84,3 +103,18 @@ transform = Transform3D(-0.0073348065, 0, -0.9999731, 0, 1, 0, 0.9999731, 0, -0.
 
 [node name="EnemyTimer" type="Timer" parent="." unique_id=730701828]
 autostart = true
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1688044632]
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=144939776]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9938885, 0.67498004, 4.325762)
+cull_mask = 1047553
+
+[node name="RearViewL" type="MeshInstance3D" parent="." unique_id=716780490]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.3240813, 0.8358029, 4.481753)
+mesh = SubResource("BoxMesh_c38u8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=540172366]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.143845, 0.7715447, 4.974492)
+mesh = SubResource("BoxMesh_c38u8")
