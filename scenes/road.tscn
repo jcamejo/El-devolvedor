@@ -20,6 +20,7 @@ center_offset = Vector3(0, 0.001, 0)
 [node name="Level" type="Node3D" unique_id=1669373357]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=669045953]
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=807485269]
 shape = SubResource("WorldBoundaryShape3D_7itxr")
