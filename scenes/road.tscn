@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cdxdhixm1tlv4"]
 
+[ext_resource type="Script" uid="uid://sbwudnhbvbgy" path="res://scripts/level.gd" id="1_72xhj"]
 [ext_resource type="PackedScene" uid="uid://cp11bkei4wnil" path="res://scenes/Player.tscn" id="1_811qs"]
+[ext_resource type="PackedScene" uid="uid://mg2oia2s6mgt" path="res://scenes/Enemy.tscn" id="2_c38u8"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7itxr"]
 
@@ -19,7 +21,24 @@ material = SubResource("StandardMaterial3D_7itxr")
 size = Vector2(3, 10)
 center_offset = Vector3(0, 0.001, 0)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5illg"]
+albedo_color = Color(1, 0.011764706, 0.039215688, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fgtc5"]
+material = SubResource("StandardMaterial3D_5illg")
+height = 0.5
+
+[sub_resource type="Curve3D" id="Curve3D_811qs"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -4.2658005, 0, -5.624065, 0, 0, 0, 0, 0, 0, 4.41436, 0, -5.560396),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
 [node name="Level" type="Node3D" unique_id=1669373357]
+script = ExtResource("1_72xhj")
+enemy_scene = ExtResource("2_c38u8")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=669045953]
 collision_mask = 2
@@ -45,3 +64,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.006085, 5.0360446)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1325719996]
 transform = Transform3D(1, 0, 0, 0, 0.98741484, 0.1581515, 0, -0.1581515, 0.98741484, 0, 0, 0)
+
+[node name="Cylinders" type="Node3D" parent="." unique_id=2021503988]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cylinders" unique_id=1799777056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.335287, 0.419181, -5.682935)
+mesh = SubResource("CylinderMesh_fgtc5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Cylinders" unique_id=1692487872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4373493, 0.419181, -5.612577)
+mesh = SubResource("CylinderMesh_fgtc5")
+
+[node name="SpawnPath" type="Path3D" parent="." unique_id=1623699593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+curve = SubResource("Curve3D_811qs")
+
+[node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath" unique_id=797026006]
+transform = Transform3D(-0.0073348065, 0, -0.9999731, 0, 1, 0, 0.9999731, 0, -0.0073348065, -4.2658005, 0, -5.624065)
+
+[node name="EnemyTimer" type="Timer" parent="." unique_id=730701828]
+autostart = true
