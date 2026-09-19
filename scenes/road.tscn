@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cdxdhixm1tlv4"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7itxr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_my2y2"]
+albedo_color = Color(0.13333334, 0.6392157, 0.24705882, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fgtc5"]
+material = SubResource("StandardMaterial3D_my2y2")
+size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7itxr"]
+albedo_color = Color(0.4745098, 0.5137255, 0.43529412, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5illg"]
+material = SubResource("StandardMaterial3D_7itxr")
+size = Vector2(0.5, 10)
+center_offset = Vector3(0, 0.001, 0)
+
+[node name="Level" type="Node3D" unique_id=1669373357]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=669045953]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=807485269]
+shape = SubResource("WorldBoundaryShape3D_7itxr")
+
+[node name="Plain" type="MeshInstance3D" parent="StaticBody3D" unique_id=2034684037]
+mesh = SubResource("PlaneMesh_fgtc5")
+
+[node name="Road" type="MeshInstance3D" parent="StaticBody3D" unique_id=3897499]
+mesh = SubResource("PlaneMesh_5illg")
