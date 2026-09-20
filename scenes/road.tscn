@@ -28,10 +28,25 @@ albedo_color = Color(1, 0.011764706, 0.039215688, 1)
 material = SubResource("StandardMaterial3D_5illg")
 height = 0.5
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c38u8"]
+albedo_color = Color(0, 0.5426451, 0.95040256, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bpux6"]
+material = SubResource("StandardMaterial3D_c38u8")
+height = 0.5
+
 [sub_resource type="Curve3D" id="Curve3D_811qs"]
 closed = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, -4.2658005, 0, -5.624065, 0, 0, 0, 0, 0, 0, 4.41436, 0, -5.560396),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_c38u8"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -4.3225756, 0, 29.299145, 0, 0, 0, 0, 0, 0, 4.458989, 0, 29.32149),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -64,20 +79,37 @@ light_energy = 1.09
 
 [node name="Cylinders" type="Node3D" parent="." unique_id=2021503988]
 
-[node name="Path1" type="MeshInstance3D" parent="Cylinders" unique_id=1799777056]
+[node name="FrontPath1" type="MeshInstance3D" parent="Cylinders" unique_id=1799777056]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.335287, 0.419181, -5.682935)
 mesh = SubResource("CylinderMesh_fgtc5")
 
-[node name="Path2" type="MeshInstance3D" parent="Cylinders" unique_id=1692487872]
+[node name="FrontPath2" type="MeshInstance3D" parent="Cylinders" unique_id=1692487872]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4373493, 0.419181, -5.612577)
 mesh = SubResource("CylinderMesh_fgtc5")
 
-[node name="SpawnPath" type="Path3D" parent="." unique_id=1623699593]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+[node name="BackPath2" type="MeshInstance3D" parent="Cylinders" unique_id=1045131513]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4373493, 0.419181, 29.279076)
+mesh = SubResource("CylinderMesh_bpux6")
+
+[node name="BackPath1" type="MeshInstance3D" parent="Cylinders" unique_id=236861435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33, 0.419, 29.279)
+mesh = SubResource("CylinderMesh_bpux6")
+
+[node name="FrontSpawnPath" type="Path3D" parent="." unique_id=1623699593]
 curve = SubResource("Curve3D_811qs")
 
-[node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath" unique_id=797026006]
+[node name="SpawnLocation" type="PathFollow3D" parent="FrontSpawnPath" unique_id=797026006]
 transform = Transform3D(-0.0073348065, 0, -0.9999731, 0, 1, 0, 0.9999731, 0, -0.0073348065, -4.2658005, 0, -5.624065)
 
-[node name="EnemyTimer" type="Timer" parent="." unique_id=730701828]
+[node name="BackSpawnPath" type="Path3D" parent="." unique_id=1055229823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+curve = SubResource("Curve3D_c38u8")
+
+[node name="SpawnLocation" type="PathFollow3D" parent="BackSpawnPath" unique_id=1482531444]
+transform = Transform3D(-0.0025445633, 0, -0.9999968, 0, 1, 0, 0.9999968, 0, -0.0025445633, -4.3225756, 0, 29.299145)
+
+[node name="FrontEnemyTimer" type="Timer" parent="." unique_id=730701828]
+autostart = true
+
+[node name="BackEnemyTimer" type="Timer" parent="." unique_id=770239560]
 autostart = true
