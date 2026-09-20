@@ -620,7 +620,7 @@ class Command:
     static func repeat_last_edit(args: Dictionary, ed: EditorAdaptor, vim: Vim) -> void:
         var repeat : int = args.repeat
         vim.macro_manager.play_macro(repeat, ".", ed)
-        
+
     static func record_macro(args: Dictionary, ed: EditorAdaptor, vim: Vim) -> void:
         var name = args.selected_character
         if name in ALPHANUMERIC:
@@ -1085,7 +1085,7 @@ class MacroManager:
             macro.play(ed)
 
         ed.simulate_press(KEY_NONE, CODE_MACRO_PLAY_END)  # This special marks the end of macro play
-        
+
     func on_macro_finished(ed: EditorAdaptor):
         var name : String = playing_names.pop_back()
         if playing_names.is_empty():
@@ -1572,7 +1572,7 @@ class CommandDispatcher:
                         ed.select(new_pos.line, 0, start.line + 1, 0)
                     process_operator(command.operator, operator_args, ed, vim)
                 return true
-        
+
         return false
 
     func process_action(action: String, action_args: Dictionary, ed: EditorAdaptor, vim: Vim) -> void:
@@ -1623,4 +1623,3 @@ class CommandDispatcher:
             print("  Motion: %s %s to %s" % [motion, motion_args, result])
 
         return result
-

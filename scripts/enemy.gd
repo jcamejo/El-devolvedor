@@ -16,7 +16,7 @@ func _on_screen_exited():
 
 func initialize(start_position):
 	position = start_position
-	
+
 
 func _physics_process(delta: float) -> void:
 	velocity.z = random_speed * delta
