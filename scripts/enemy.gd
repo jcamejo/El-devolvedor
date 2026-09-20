@@ -19,7 +19,5 @@ func initialize(start_position):
 	
 
 func _physics_process(delta: float) -> void:
-	print(velocity.z)
-	print('random speed %s' % random_speed)
 	velocity.z = random_speed * delta
 	move_and_slide()
