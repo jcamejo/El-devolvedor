@@ -10,7 +10,7 @@ material = ExtResource("2_55jtl")
 radius = 0.3
 
 [node name="Enemy" type="CharacterBody3D" unique_id=1135848854]
-collision_layer = 2
+collision_layer = 4
 script = ExtResource("1_3gvst")
 
 [node name="Pivot" type="Node3D" parent="." unique_id=534324227]

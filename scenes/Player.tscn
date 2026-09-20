@@ -40,6 +40,8 @@ size = Vector3(1.5, 0.1, 1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_fgtc5"]
 radius = 0.3
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_5illg"]
+
 [node name="Player" type="CharacterBody3D" unique_id=1135848854]
 collision_layer = 2
 script = ExtResource("1_p0vlq")
@@ -91,3 +93,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -1.305, 0.364, 1.534
 fov = 63.4
 script = ExtResource("2_v6fml")
 mount = NodePath("../../../Pivot/RearViewR/RightMirrorMount")
+
+[node name="EnemyDetector" type="Area3D" parent="." unique_id=888488295]
+collision_layer = 2
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyDetector" unique_id=19552038]
+shape = SubResource("SphereShape3D_5illg")
