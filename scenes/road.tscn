@@ -56,6 +56,7 @@ script = ExtResource("1_72xhj")
 enemy_scene = ExtResource("2_c38u8")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=669045953]
+visible = false
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=807485269]
