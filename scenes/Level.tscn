@@ -111,11 +111,12 @@ curve = SubResource("Curve3D_c38u8")
 transform = Transform3D(-0.0025445633, 0, -0.9999968, 0, 1, 0, 0.9999968, 0, -0.0025445633, -4.3225756, 0, 29.299145)
 
 [node name="FrontEnemyTimer" type="Timer" parent="." unique_id=730701828]
-wait_time = 2.911
+wait_time = 0.935
+one_shot = true
 autostart = true
 
 [node name="BackEnemyTimer" type="Timer" parent="." unique_id=770239560]
-wait_time = 4.646
+wait_time = 2.547
 autostart = true
 
 [node name="DebugCamera" type="Camera3D" parent="." unique_id=1708241117]

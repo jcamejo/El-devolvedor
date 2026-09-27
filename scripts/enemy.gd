@@ -38,4 +38,8 @@ func _physics_process(delta: float) -> void:
 	if origin == 'back':
 		velocity *= -1
 
+	if abs(position.z) > 100:
+		queue_free()
+
+
 	move_and_slide()
