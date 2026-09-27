@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://sbwudnhbvbgy" path="res://scripts/level.gd" id="1_6vs76"]
 [ext_resource type="PackedScene" uid="uid://mg2oia2s6mgt" path="res://scenes/Enemy.tscn" id="2_kl8ac"]
+[ext_resource type="PackedScene" uid="uid://wsbryfn7vm0w" path="res://scenes/EnemyGhost.tscn" id="3_kl8ac"]
 [ext_resource type="PackedScene" uid="uid://cp11bkei4wnil" path="res://scenes/Player.tscn" id="3_qifjx"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7itxr"]
@@ -29,7 +30,7 @@ material = SubResource("StandardMaterial3D_5illg")
 height = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c38u8"]
-albedo_color = Color(0, 0.5426451, 0.95040256, 1)
+albedo_color = Color(0, 0.5411765, 0.9490196, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_bpux6"]
 material = SubResource("StandardMaterial3D_c38u8")
@@ -51,9 +52,16 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_6vs76"]
+size = Vector3(15, 10, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kl8ac"]
+size = Vector3(15, 10, 1)
+
 [node name="Level" type="Node3D" unique_id=1669373357]
 script = ExtResource("1_6vs76")
 enemy_scene = ExtResource("2_kl8ac")
+enemy_ghost_scene = ExtResource("3_kl8ac")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=669045953]
 visible = false
@@ -85,16 +93,16 @@ light_indirect_energy = 3.139
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.335287, 0.419181, -5.682935)
 mesh = SubResource("CylinderMesh_fgtc5")
 
-[node name="FrontPath2" type="MeshInstance3D" parent="Cylinders" unique_id=1692487872]
+[node name="FrontPath4" type="MeshInstance3D" parent="Cylinders" unique_id=1692487872]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4373493, 0.419181, -5.612577)
 mesh = SubResource("CylinderMesh_fgtc5")
 
-[node name="BackPath2" type="MeshInstance3D" parent="Cylinders" unique_id=1045131513]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4373493, 0.419181, 29.279076)
-mesh = SubResource("CylinderMesh_bpux6")
-
 [node name="BackPath1" type="MeshInstance3D" parent="Cylinders" unique_id=236861435]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33, 0.419, 29.279)
+mesh = SubResource("CylinderMesh_bpux6")
+
+[node name="BackPath4" type="MeshInstance3D" parent="Cylinders" unique_id=1045131513]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4373493, 0.419181, 29.279076)
 mesh = SubResource("CylinderMesh_bpux6")
 
 [node name="FrontSpawnPath" type="Path3D" parent="." unique_id=1623699593]
@@ -123,3 +131,19 @@ transform = Transform3D(-0.9999069, -0.0038948334, 0.013077645, 0.0034443971, 0.
 
 [node name="SpawnMarker" type="Marker3D" parent="." unique_id=1262200446]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40)
+
+[node name="FrontDetector" type="Area3D" parent="." unique_id=1617478987]
+collision_layer = 8
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FrontDetector" unique_id=1718429230]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31.921528)
+shape = SubResource("BoxShape3D_6vs76")
+
+[node name="BackDetector" type="Area3D" parent="." unique_id=835323473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.8402405)
+collision_layer = 8
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BackDetector" unique_id=179446366]
+shape = SubResource("BoxShape3D_kl8ac")

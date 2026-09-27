@@ -13,6 +13,7 @@ script = ExtResource("2_72xhj")
 visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=295528314]
+collision_mask = 22
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=340982771]
 shape = SubResource("ConcavePolygonShape3D_811qs")
