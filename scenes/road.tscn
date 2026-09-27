@@ -1,22 +1,23 @@
 [gd_scene format=3 uid="uid://blacxgv2s7lf"]
 
-[ext_resource type="PackedScene" uid="uid://8dmoomj31mxm" path="res://materials/pista.blend" id="1_811qs"]
-[ext_resource type="Script" uid="uid://bgswbcdu5shfv" path="res://scenes/road.gd" id="2_72xhj"]
+[ext_resource type="Texture2D" uid="uid://bdanqertf3i7q" path="res://materials/models/textures/Road Base Color.png" id="1_72xhj"]
+[ext_resource type="Script" uid="uid://bgswbcdu5shfv" path="res://scripts/road.gd" id="2_72xhj"]
+[ext_resource type="ArrayMesh" uid="uid://dmqb4nmlfis0t" path="res://materials/models/road.obj" id="2_c38u8"]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_811qs"]
-data = PackedVector3Array(10, 0.25, -5, -10, 0.25, 5, -10, 0.25, -5, 10, 0.25, -5, 10, 0.25, 5, -10, 0.25, 5, 10, -0.25, 5, -10, 0.25, 5, 10, 0.25, 5, 10, -0.25, 5, -10, -0.25, 5, -10, 0.25, 5, -10, -0.25, 5, -10, 0.25, -5, -10, 0.25, 5, -10, -0.25, 5, -10, -0.25, -5, -10, 0.25, -5, -10, -0.25, -5, 10, -0.25, 5, 10, -0.25, -5, -10, -0.25, -5, -10, -0.25, 5, 10, -0.25, 5, 10, -0.25, -5, 10, 0.25, 5, 10, 0.25, -5, 10, -0.25, -5, 10, -0.25, 5, 10, 0.25, 5, -10, -0.25, -5, 10, 0.25, -5, -10, 0.25, -5, -10, -0.25, -5, 10, -0.25, -5, 10, 0.25, -5)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bpux6"]
+albedo_texture = ExtResource("1_72xhj")
 
-[node name="Road" unique_id=700217858 instance=ExtResource("1_811qs")]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_kn8yx"]
+data = PackedVector3Array(-10, 0.25, -5, 10, 0.25, -5, -10, 0.25, 5, -10, 0.25, 5, 10, 0.25, -5, 10, 0.25, 5, 10, 0.25, 5, 10, -0.25, 5, -10, 0.25, 5, -10, 0.25, 5, 10, -0.25, 5, -10, -0.25, 5, -10, 0.25, 5, -10, -0.25, 5, -10, 0.25, -5, -10, 0.25, -5, -10, -0.25, 5, -10, -0.25, -5, 10, -0.25, -5, -10, -0.25, -5, 10, -0.25, 5, 10, -0.25, 5, -10, -0.25, -5, -10, -0.25, 5, 10, 0.25, -5, 10, -0.25, -5, 10, 0.25, 5, 10, 0.25, 5, 10, -0.25, -5, 10, -0.25, 5, -10, 0.25, -5, -10, -0.25, -5, 10, 0.25, -5, 10, 0.25, -5, -10, -0.25, -5, 10, -0.25, -5)
+
+[node name="Road" type="Node3D" unique_id=1857055972]
 script = ExtResource("2_72xhj")
 
-[node name="Camera" parent="." index="0" unique_id=1400933465]
-visible = false
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1566868820]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=295528314]
-collision_mask = 22
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1508942506]
+material_override = SubResource("StandardMaterial3D_bpux6")
+mesh = ExtResource("2_c38u8")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=340982771]
-shape = SubResource("ConcavePolygonShape3D_811qs")
-
-[node name="Light" parent="." index="3" unique_id=1216668515]
-visible = false
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1611516773]
+shape = SubResource("ConcavePolygonShape3D_kn8yx")

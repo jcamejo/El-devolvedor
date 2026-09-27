@@ -5,6 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://wsbryfn7vm0w" path="res://scenes/EnemyGhost.tscn" id="3_kl8ac"]
 [ext_resource type="PackedScene" uid="uid://cp11bkei4wnil" path="res://scenes/Player.tscn" id="3_qifjx"]
 [ext_resource type="PackedScene" uid="uid://6haui3d6cs1o" path="res://scenes/Ui.tscn" id="5_qifjx"]
+[ext_resource type="Texture2D" uid="uid://v2gcii73qpq7" path="res://materials/textures/orig.png" id="7_4qegb"]
+
+[sub_resource type="Environment" id="Environment_qifjx"]
+background_color = Color(0.17529324, 0.4430956, 0.38653967, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7itxr"]
 
@@ -69,6 +73,9 @@ size = Vector3(15, 10, 1)
 script = ExtResource("1_6vs76")
 enemy_scene = ExtResource("2_kl8ac")
 enemy_ghost_scene = ExtResource("3_kl8ac")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=428286029]
+environment = SubResource("Environment_qifjx")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=669045953]
 visible = false
@@ -176,3 +183,11 @@ debug_color = Color(0.9678444, 0, 0.4747153, 0.41960785)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1825753874]
 
 [node name="UI" parent="CanvasLayer" unique_id=2134106640 instance=ExtResource("5_qifjx")]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=335873184]
+transform = Transform3D(22, 0, 0, 0, 22, 0, 0, 0, 22, 0, 7.813984, 48.79058)
+texture = ExtResource("7_4qegb")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=278111373]
+transform = Transform3D(24, 0, 0, 0, 24, 0, 0, 0, 24, 0.31661987, 15.016914, -124.60812)
+texture = ExtResource("7_4qegb")

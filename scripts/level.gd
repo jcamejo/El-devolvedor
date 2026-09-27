@@ -52,7 +52,6 @@ func _start_timer() -> void:
 	timer.wait_time = 1
 	timer.connect('timeout', func():
 		current_time += 1
-		print('timeout')
 		ui.update_time(str(current_time))
 	)
 	add_child(timer)

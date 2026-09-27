@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgnn53fnrat0f"
-path.s3tc="res://.godot/imported/pista_Road Base Color.png-0166a652fff1b6734b09a18dbcfd1f2f.s3tc.ctex"
+uid="uid://cjx2qdxi7p6xm"
+path.s3tc="res://.godot/imported/origbig.png-80cad9136b7e02eed75dd411ea33d5b1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "4bfa7735639211d6db2486ca44088be2"
-}
 
 [deps]
 
-source_file="res://materials/pista_Road Base Color.png"
-dest_files=["res://.godot/imported/pista_Road Base Color.png-0166a652fff1b6734b09a18dbcfd1f2f.s3tc.ctex"]
+source_file="res://materials/textures/origbig.png"
+dest_files=["res://.godot/imported/origbig.png-80cad9136b7e02eed75dd411ea33d5b1.s3tc.ctex"]
 
 [params]
 
