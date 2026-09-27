@@ -33,7 +33,9 @@ func initialize(start_position, origins):
 
 	if origin == 'back':
 		speed = randi_range(back_min_speed, back_max_speed)
+		rotate_y(deg_to_rad(180))
 	else:
+		rotate_y(-deg_to_rad(180))
 		speed = randi_range(front_min_speed, front_max_speed)
 
 

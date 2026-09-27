@@ -1,10 +1,7 @@
 [gd_scene format=3 uid="uid://mg2oia2s6mgt"]
 
 [ext_resource type="Script" uid="uid://cj6axnnf8heo2" path="res://scripts/enemy.gd" id="1_3gvst"]
-[ext_resource type="Material" uid="uid://c34r364527mfp" path="res://resources/front_enemy.tres" id="2_55jtl"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_fgtc5"]
-material = ExtResource("2_55jtl")
+[ext_resource type="ArrayMesh" uid="uid://dw7tqqkwhybjr" path="res://materials/models/duck2.obj" id="2_55jtl"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fgtc5"]
 radius = 0.3
@@ -20,7 +17,7 @@ back_max_speed = 250
 
 [node name="Model" type="MeshInstance3D" parent="Pivot" unique_id=1580040612]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20016348, -0.06045544)
-mesh = SubResource("SphereMesh_fgtc5")
+mesh = ExtResource("2_55jtl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1519810858]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20016348, -0.06045544)
