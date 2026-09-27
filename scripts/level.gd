@@ -1,5 +1,6 @@
 extends Node
 
+@export var initial_time: int = 0
 @export var enemy_scene: PackedScene
 @export var enemy_ghost_scene: PackedScene
 @onready var front_enemy_timer: Timer = $FrontEnemyTimer
@@ -13,6 +14,8 @@ extends Node
 @onready var back_detector: Area3D = $BackDetector
 @onready var front_disposal: Area3D = $FrontDisposalDetector
 @onready var back_disposal: Area3D = $BackDisposalDetector
+@onready var ui: Ui = $CanvasLayer/UI
+@onready var current_time: int = initial_time
 
 const INITIAL_ROADS=20.0
 const TILE_SIZE=10.0
@@ -38,6 +41,23 @@ func _ready() -> void:
 	front_disposal.connect('area_entered', _dispose)
 	back_disposal.connect('area_entered', _dispose)
 
+	_start_timer()
+
+func _start_timer() -> void:
+	ui.update_time(str(initial_time))
+
+	var timer := Timer.new()
+	timer.one_shot = false
+	timer.autostart = true
+	timer.wait_time = 1
+	timer.connect('timeout', func():
+		current_time += 1
+		print('timeout')
+		ui.update_time(str(current_time))
+	)
+	add_child(timer)
+
+
 func _dispose(body) -> void:
 	body.queue_free()
 
@@ -51,7 +71,6 @@ func _on_back_ghost_entered(area) -> void:
 	var initial_position = back_enemy_spawn_location.position
 	initial_position.x = area.position.x
 	_spawn_enemy(initial_position, 'back')
-
 
 
 func _monitor_roads():

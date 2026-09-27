@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://mg2oia2s6mgt" path="res://scenes/Enemy.tscn" id="2_kl8ac"]
 [ext_resource type="PackedScene" uid="uid://wsbryfn7vm0w" path="res://scenes/EnemyGhost.tscn" id="3_kl8ac"]
 [ext_resource type="PackedScene" uid="uid://cp11bkei4wnil" path="res://scenes/Player.tscn" id="3_qifjx"]
+[ext_resource type="PackedScene" uid="uid://6haui3d6cs1o" path="res://scenes/Ui.tscn" id="5_qifjx"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7itxr"]
 
@@ -171,3 +172,7 @@ collision_mask = 20
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.373077)
 shape = SubResource("BoxShape3D_dke22")
 debug_color = Color(0.9678444, 0, 0.4747153, 0.41960785)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1825753874]
+
+[node name="UI" parent="CanvasLayer" unique_id=2134106640 instance=ExtResource("5_qifjx")]
