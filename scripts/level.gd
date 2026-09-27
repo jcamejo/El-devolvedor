@@ -11,6 +11,8 @@ extends Node
 @onready var added_road: bool = false
 @onready var front_detector: Area3D = $FrontDetector
 @onready var back_detector: Area3D = $BackDetector
+@onready var front_disposal: Area3D = $FrontDisposalDetector
+@onready var back_disposal: Area3D = $BackDisposalDetector
 
 const INITIAL_ROADS=20.0
 const TILE_SIZE=10.0
@@ -29,6 +31,15 @@ func _ready() -> void:
 
 	front_detector.connect('area_entered', _on_front_ghost_entered)
 	back_detector.connect('area_entered', _on_back_ghost_entered)
+
+	front_disposal.connect('body_entered', _dispose)
+	back_disposal.connect('body_entered', _dispose)
+#
+	front_disposal.connect('area_entered', _dispose)
+	back_disposal.connect('area_entered', _dispose)
+
+func _dispose(body) -> void:
+	body.queue_free()
 
 func _on_front_ghost_entered(area: Area3D) -> void:
 	var initial_position = front_enemy_spawn_location.position

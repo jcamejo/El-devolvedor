@@ -3,8 +3,15 @@ class_name Enemy extends CharacterBody3D
 @export var min_speed = 100
 @export var max_speed = 180
 
+@export var front_min_speed = 20
+@export var front_max_speed = 40
+
+@export var back_min_speed = 80
+@export var back_max_speed = 120
+
 @onready var visibilityNotifier: VisibleOnScreenNotifier3D = $VisibleOnScreenNotifier3D
 @onready var random_speed = randi_range(min_speed, max_speed)
+@onready var speed: int
 @onready var origin: String
 @onready var model: MeshInstance3D = $Pivot/Model
 
@@ -24,6 +31,11 @@ func initialize(start_position, origins):
 	position = start_position
 	origin = origins
 
+	if origin == 'back':
+		speed = randi_range(back_min_speed, back_max_speed)
+	else:
+		speed = randi_range(front_min_speed, front_max_speed)
+
 
 func _set_color():
 	if origin == 'back':
@@ -33,13 +45,12 @@ func _set_color():
 
 
 func _physics_process(delta: float) -> void:
-	velocity.z = random_speed * delta
+	velocity.z = speed * delta
 
 	if origin == 'back':
 		velocity *= -1
 
 	if abs(position.z) > 100:
 		queue_free()
-
 
 	move_and_slide()

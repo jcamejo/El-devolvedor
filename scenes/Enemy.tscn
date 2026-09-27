@@ -13,6 +13,8 @@ radius = 0.3
 collision_layer = 4
 collision_mask = 17
 script = ExtResource("1_3gvst")
+back_min_speed = 201
+back_max_speed = 250
 
 [node name="Pivot" type="Node3D" parent="." unique_id=534324227]
 

@@ -58,6 +58,12 @@ size = Vector3(15, 10, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_kl8ac"]
 size = Vector3(15, 10, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_qifjx"]
+size = Vector3(15, 10, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dke22"]
+size = Vector3(15, 10, 1)
+
 [node name="Level" type="Node3D" unique_id=1669373357]
 script = ExtResource("1_6vs76")
 enemy_scene = ExtResource("2_kl8ac")
@@ -119,7 +125,7 @@ curve = SubResource("Curve3D_c38u8")
 transform = Transform3D(-0.0025445633, 0, -0.9999968, 0, 1, 0, 0.9999968, 0, -0.0025445633, -4.3225756, 0, 29.299145)
 
 [node name="FrontEnemyTimer" type="Timer" parent="." unique_id=730701828]
-wait_time = 0.935
+wait_time = 2.9099999999999997
 autostart = true
 
 [node name="BackEnemyTimer" type="Timer" parent="." unique_id=770239560]
@@ -147,3 +153,21 @@ collision_mask = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BackDetector" unique_id=179446366]
 shape = SubResource("BoxShape3D_kl8ac")
+
+[node name="FrontDisposalDetector" type="Area3D" parent="." unique_id=1062564799]
+collision_layer = 32
+collision_mask = 20
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FrontDisposalDetector" unique_id=334558822]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 33.67265)
+shape = SubResource("BoxShape3D_qifjx")
+debug_color = Color(0.9690965, 0, 0.4667015, 0.41960785)
+
+[node name="BackDisposalDetector" type="Area3D" parent="." unique_id=66751563]
+collision_layer = 33
+collision_mask = 20
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BackDisposalDetector" unique_id=71914841]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.373077)
+shape = SubResource("BoxShape3D_dke22")
+debug_color = Color(0.9678444, 0, 0.4747153, 0.41960785)
