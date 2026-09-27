@@ -9,7 +9,7 @@ extends Node
 @onready var spawn_marker: Marker3D = $SpawnMarker
 @onready var added_road: bool = false
 
-const INITIAL_ROADS=8.0
+const INITIAL_ROADS=20.0
 const TILE_SIZE=10.0
 const OFFSET= int((INITIAL_ROADS * TILE_SIZE) / 2)
 

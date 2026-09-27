@@ -75,8 +75,9 @@ mesh = SubResource("PlaneMesh_5illg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 2.8901143)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=88199892]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5.67, 0)
-light_energy = 1.09
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5.7755117, 6.53199, 16.751322)
+light_energy = 2.357
+light_indirect_energy = 3.139
 
 [node name="Cylinders" type="Node3D" parent="." unique_id=2021503988]
 
@@ -121,4 +122,4 @@ autostart = true
 transform = Transform3D(-0.9999069, -0.0038948334, 0.013077645, 0.0034443971, 0.855319, 0.5180903, -0.013203434, 0.518087, -0.8552259, 0, 6.892954, -39.561813)
 
 [node name="SpawnMarker" type="Marker3D" parent="." unique_id=1262200446]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.034538)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40)

@@ -2,6 +2,7 @@ class_name Road
 extends Node3D
 
 var speed = 10
+const LIMIT=100
 @onready var level = $"../"
 
 # Called when the node enters the scene tree for the first time.
@@ -14,5 +15,5 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	position.z += speed * delta
 
-	if position.z == 5:
-		print('More than 5')
+	if position.z >= LIMIT:
+		queue_free()
