@@ -10,6 +10,9 @@ albedo_texture = ExtResource("1_72xhj")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_kn8yx"]
 data = PackedVector3Array(-10, 0.25, -5, 10, 0.25, -5, -10, 0.25, 5, -10, 0.25, 5, 10, 0.25, -5, 10, 0.25, 5, 10, 0.25, 5, 10, -0.25, 5, -10, 0.25, 5, -10, 0.25, 5, 10, -0.25, 5, -10, -0.25, 5, -10, 0.25, 5, -10, -0.25, 5, -10, 0.25, -5, -10, 0.25, -5, -10, -0.25, 5, -10, -0.25, -5, 10, -0.25, -5, -10, -0.25, -5, 10, -0.25, 5, 10, -0.25, 5, -10, -0.25, -5, -10, -0.25, 5, 10, 0.25, -5, 10, -0.25, -5, 10, 0.25, 5, 10, 0.25, 5, 10, -0.25, -5, 10, -0.25, 5, -10, 0.25, -5, -10, -0.25, -5, 10, 0.25, -5, 10, 0.25, -5, -10, -0.25, -5, 10, -0.25, -5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_c38u8"]
+size = Vector3(1, 1, 10)
+
 [node name="Road" type="Node3D" unique_id=1857055972]
 script = ExtResource("2_72xhj")
 
@@ -21,3 +24,23 @@ mesh = ExtResource("2_c38u8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1611516773]
 shape = SubResource("ConcavePolygonShape3D_kn8yx")
+
+[node name="OuterLimit1" type="Area3D" parent="." unique_id=134811513]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4265895, 2, 0)
+collision_layer = 64
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OuterLimit1" unique_id=1934148797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7565756, -1.2914503, 0)
+shape = SubResource("BoxShape3D_c38u8")
+debug_color = Color(1.1715088, 0.33896345, 0.5234196, 0.8862745)
+
+[node name="OuterLimit2" type="Area3D" parent="." unique_id=2132806287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0958514, 2, 0)
+collision_layer = 64
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OuterLimit2" unique_id=1745168810]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7565756, -1.2914503, 0)
+shape = SubResource("BoxShape3D_c38u8")
+debug_color = Color(1.1715088, 0.33896345, 0.5234196, 0.8862745)

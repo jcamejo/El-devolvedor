@@ -75,11 +75,20 @@ func _on_back_ghost_entered(area) -> void:
 func _monitor_roads():
 	var last_road = roads[roads.size() - 1]
 	if last_road.position.z > spawn_marker.position.z && !added_road:
-		var new_road: Node3D = road.instantiate()
+		var new_position = last_road.position
+		new_position.z = last_road.position.z - 9.5 # 9.5 is the size of the road
 		added_road = true
-		new_road.position.z = last_road.position.z - 9.5 # 9.5 is the size of the road
-		add_child(new_road)
-		roads.append(new_road)
+		create_road(new_position)
+
+
+func create_road(position):
+	var new_road: Road = road.instantiate()
+	new_road.position = position
+
+	new_road.connect('out_of_bounds', func(body): print('%s out of bounds' % body))
+
+	add_child(new_road)
+	roads.append(new_road)
 
 
 func _physics_process(_delta: float) -> void:
@@ -97,15 +106,7 @@ func _add_initial_road(times) -> void:
 	for n in times:
 		var new_road: Node3D = road.instantiate()
 		new_road.position.z = -(n * 10) + OFFSET
-		roads.append(new_road)
-		add_child(new_road)
-
-
-func add_road() -> void:
-	var new_road: Node3D = road.instantiate()
-	new_road.position.x = 0
-	new_road.position.z = 0 - OFFSET
-	add_child(new_road)
+		create_road(new_road.position)
 
 
 func _on_enemy_timer(orientation: String) -> void:

@@ -104,19 +104,19 @@ light_indirect_energy = 3.139
 [node name="Cylinders" type="Node3D" parent="." unique_id=2021503988]
 
 [node name="FrontPath1" type="MeshInstance3D" parent="Cylinders" unique_id=1799777056]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.335287, 0.419181, -5.682935)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.261394, 0.419181, -5.682935)
 mesh = SubResource("CylinderMesh_fgtc5")
 
 [node name="FrontPath4" type="MeshInstance3D" parent="Cylinders" unique_id=1692487872]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4373493, 0.419181, -5.612577)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.322545, 0.419181, -5.612577)
 mesh = SubResource("CylinderMesh_fgtc5")
 
 [node name="BackPath1" type="MeshInstance3D" parent="Cylinders" unique_id=236861435]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33, 0.419, 29.279)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.346641, 0.419, 29.279)
 mesh = SubResource("CylinderMesh_bpux6")
 
 [node name="BackPath4" type="MeshInstance3D" parent="Cylinders" unique_id=1045131513]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4373493, 0.419181, 29.279076)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2217298, 0.419181, 29.279076)
 mesh = SubResource("CylinderMesh_bpux6")
 
 [node name="FrontSpawnPath" type="Path3D" parent="." unique_id=1623699593]

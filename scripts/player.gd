@@ -3,10 +3,6 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
-@onready var enemy_detector: Area3D = $EnemyDetector
-
-func _ready() -> void:
-	enemy_detector.connect('body_entered', _on_contact)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -29,7 +25,3 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
-
-
-func _on_contact(_body):
-	pass

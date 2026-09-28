@@ -36,10 +36,8 @@ resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_3li8b")
 size = Vector3(1.5, 0.1, 1)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_fgtc5"]
-radius = 0.3
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_5illg"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_3li8b"]
+size = Vector3(0.5, 1, 1.4)
 
 [node name="Player" type="CharacterBody3D" unique_id=1135848854]
 collision_layer = 2
@@ -65,8 +63,9 @@ mesh = SubResource("BoxMesh_mdl7e")
 transform = Transform3D(0.99342203, 0.006111315, 0.11434674, 0.114486545, -0.032814264, -0.9928826, -0.002315648, 0.99944264, -0.033298075, 0.71000004, 0.10599995, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1519810858]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20016348, -0.06045544)
-shape = SubResource("SphereShape3D_fgtc5")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0035359561, 0.61836165, 0.20210159)
+shape = SubResource("BoxShape3D_3li8b")
+debug_color = Color(0, 0.6, 0.69803923, 1)
 
 [node name="MainCamera" type="Camera3D" parent="." unique_id=1854268692]
 transform = Transform3D(-1, 0, -8.742277e-08, -3.652492e-08, 0.90854067, 0.4177964, 7.9427146e-08, 0.4177964, -0.90854067, 0, 1.4795654, -0.17205417)
@@ -92,11 +91,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -1.305, 0.364, 1.534
 fov = 63.4
 script = ExtResource("2_v6fml")
 mount = NodePath("../../../Pivot/RearViewR/RightMirrorMount")
-
-[node name="EnemyDetector" type="Area3D" parent="." unique_id=888488295]
-collision_layer = 2
-collision_mask = 4
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyDetector" unique_id=19552038]
-shape = SubResource("SphereShape3D_5illg")
