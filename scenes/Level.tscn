@@ -133,12 +133,10 @@ curve = SubResource("Curve3D_c38u8")
 transform = Transform3D(-0.0025445633, 0, -0.9999968, 0, 1, 0, 0.9999968, 0, -0.0025445633, -4.3225756, 0, 29.299145)
 
 [node name="FrontEnemyTimer" type="Timer" parent="." unique_id=730701828]
-wait_time = 2.9099999999999997
-autostart = true
+wait_time = 3.0
 
 [node name="BackEnemyTimer" type="Timer" parent="." unique_id=770239560]
-wait_time = 2.547
-autostart = true
+wait_time = 3.0
 
 [node name="DebugCamera" type="Camera3D" parent="." unique_id=1708241117]
 transform = Transform3D(-0.9999069, -0.0038948334, 0.013077645, 0.0034443971, 0.855319, 0.5180903, -0.013203434, 0.518087, -0.8552259, 0, 6.892954, -39.561813)
@@ -191,3 +189,5 @@ texture = ExtResource("7_4qegb")
 [node name="Sprite3D2" type="Sprite3D" parent="." unique_id=278111373]
 transform = Transform3D(24, 0, 0, 0, 24, 0, 0, 0, 24, 0.31661987, 15.016914, -124.60812)
 texture = ExtResource("7_4qegb")
+
+[node name="Timer" type="Timer" parent="." unique_id=366862594]

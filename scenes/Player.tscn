@@ -37,7 +37,7 @@ material = SubResource("StandardMaterial3D_3li8b")
 size = Vector3(1.5, 0.1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3li8b"]
-size = Vector3(0.5, 1, 1.4)
+size = Vector3(0.5, 1.3005066, 1.4)
 
 [node name="Player" type="CharacterBody3D" unique_id=1135848854]
 collision_layer = 2
@@ -63,13 +63,14 @@ mesh = SubResource("BoxMesh_mdl7e")
 transform = Transform3D(0.99342203, 0.006111315, 0.11434674, 0.114486545, -0.032814264, -0.9928826, -0.002315648, 0.99944264, -0.033298075, 0.71000004, 0.10599995, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1519810858]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0035359561, 0.61836165, 0.20210159)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0035359561, 0.76861495, 0.20210159)
 shape = SubResource("BoxShape3D_3li8b")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 
 [node name="MainCamera" type="Camera3D" parent="." unique_id=1854268692]
-transform = Transform3D(-1, 0, -8.742277e-08, -3.652492e-08, 0.90854067, 0.4177964, 7.9427146e-08, 0.4177964, -0.90854067, 0, 1.4795654, -0.17205417)
+transform = Transform3D(-1, 0, -8.742277e-08, -3.652492e-08, 0.90854067, 0.4177964, 7.9427146e-08, 0.4177964, -0.90854067, 0.0010924339, 2.1769094, -1.3948369)
 current = true
+fov = 73.8
 
 [node name="Viewports" type="Node" parent="." unique_id=1398996596]
 

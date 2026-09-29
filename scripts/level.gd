@@ -1,12 +1,16 @@
 extends Node
 
-@export var initial_time: int = 0
+@export var run_duration: float = 120.0 # in seconds
 @export var enemy_scene: PackedScene
 @export var enemy_ghost_scene: PackedScene
 @onready var front_enemy_timer: Timer = $FrontEnemyTimer
+@onready var front_enemy_start_interval = 3.0
+@onready var front_enemy_end_interval = 1.0
 @onready var front_enemy_spawn_location: PathFollow3D = $FrontSpawnPath/SpawnLocation
 @onready var back_enemy_spawn_location: PathFollow3D = $BackSpawnPath/SpawnLocation
 @onready var back_enemy_timer: Timer = $BackEnemyTimer
+@onready var back_enemy_start_interval = 3.0
+@onready var back_enemy_end_interval = 1.0
 @onready var road: PackedScene = preload('res://scenes/Road.tscn')
 @onready var spawn_marker: Marker3D = $SpawnMarker
 @onready var added_road: bool = false
@@ -15,7 +19,7 @@ extends Node
 @onready var front_disposal: Area3D = $FrontDisposalDetector
 @onready var back_disposal: Area3D = $BackDisposalDetector
 @onready var ui: Ui = $CanvasLayer/UI
-@onready var current_time: int = initial_time
+@onready var current_time: float = run_duration
 
 const INITIAL_ROADS=20.0
 const TILE_SIZE=10.0
@@ -25,11 +29,30 @@ var roads: Array[Road] = []
 
 @export var enable_enemies: bool = true
 
+func _process(delta: float) -> void:
+	if current_time <= 0:
+		get_tree().quit()
+
+	current_time -= delta
+	ui.update_time(str(int(current_time)))
+
+	var elapsed_time: float = run_duration - current_time
+	var t: float = clampf(elapsed_time / run_duration, 0.0, 1.0)
+	var affected_t = pow(t, 0.5)
+
+	print('not affected t', t)
+	print('affected t', affected_t)
+
+	front_enemy_timer.wait_time = lerpf(front_enemy_start_interval, front_enemy_end_interval, affected_t)
+	back_enemy_timer.wait_time = lerpf(back_enemy_start_interval, back_enemy_end_interval, affected_t)
+
+	print('front_enemy_timer', front_enemy_timer.wait_time)
+	print('back enemy timer', back_enemy_timer.wait_time)
+
 func _ready() -> void:
 	if enable_enemies:
+		_initialize_timers()
 		#front_enemy_timer.connect('timeout', _on_enemy_timer.bind('front'))
-		front_enemy_timer.connect('timeout', _on_enemy_ghost_timer.bind('front'))
-		back_enemy_timer.connect('timeout', _on_enemy_ghost_timer.bind('back'))
 	_add_initial_road(INITIAL_ROADS)
 
 	front_detector.connect('area_entered', _on_front_ghost_entered)
@@ -41,17 +64,28 @@ func _ready() -> void:
 	front_disposal.connect('area_entered', _dispose)
 	back_disposal.connect('area_entered', _dispose)
 
-	_start_timer()
+	#_start_timer()
+
+func _initialize_timers() -> void:
+	front_enemy_timer.wait_time = front_enemy_start_interval
+	front_enemy_timer.connect('timeout', _on_enemy_ghost_timer.bind('front'))
+	back_enemy_timer.connect('timeout', _on_enemy_ghost_timer.bind('back'))
+	back_enemy_timer.wait_time = back_enemy_start_interval
+
+	front_enemy_timer.start()
+	back_enemy_timer.start()
+
+
 
 func _start_timer() -> void:
-	ui.update_time(str(initial_time))
+	ui.update_time(str(run_duration))
 
 	var timer := Timer.new()
 	timer.one_shot = false
 	timer.autostart = true
 	timer.wait_time = 1
 	timer.connect('timeout', func():
-		current_time += 1
+		current_time -= 1
 		ui.update_time(str(current_time))
 	)
 	add_child(timer)

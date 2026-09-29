@@ -1,6 +1,6 @@
 class_name EnemyGhost extends Area3D
 
-const speed = 7
+const speed = 100
 const OFFSET = 1
 var origin: String
 

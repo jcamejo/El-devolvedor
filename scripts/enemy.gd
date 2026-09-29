@@ -3,11 +3,11 @@ class_name Enemy extends CharacterBody3D
 @export var min_speed = 100
 @export var max_speed = 180
 
-@export var front_min_speed = 20
-@export var front_max_speed = 40
+@export var front_min_speed = 200
+@export var front_max_speed = 250
 
-@export var back_min_speed = 80
-@export var back_max_speed = 120
+@export var back_min_speed = 140
+@export var back_max_speed = 180
 
 @onready var visibilityNotifier: VisibleOnScreenNotifier3D = $VisibleOnScreenNotifier3D
 @onready var random_speed = randi_range(min_speed, max_speed)
