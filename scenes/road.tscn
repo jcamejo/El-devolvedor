@@ -1,11 +1,7 @@
 [gd_scene format=3 uid="uid://blacxgv2s7lf"]
 
-[ext_resource type="Texture2D" uid="uid://bdanqertf3i7q" path="res://materials/models/textures/Road Base Color.png" id="1_72xhj"]
 [ext_resource type="Script" uid="uid://bgswbcdu5shfv" path="res://scripts/road.gd" id="2_72xhj"]
-[ext_resource type="ArrayMesh" uid="uid://dmqb4nmlfis0t" path="res://materials/models/road.obj" id="2_c38u8"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bpux6"]
-albedo_texture = ExtResource("1_72xhj")
+[ext_resource type="ArrayMesh" uid="uid://b2rl1uucb8puv" path="res://materials/pista.obj" id="3_c38u8"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_kn8yx"]
 data = PackedVector3Array(-10, 0.25, -5, 10, 0.25, -5, -10, 0.25, 5, -10, 0.25, 5, 10, 0.25, -5, 10, 0.25, 5, 10, 0.25, 5, 10, -0.25, 5, -10, 0.25, 5, -10, 0.25, 5, 10, -0.25, 5, -10, -0.25, 5, -10, 0.25, 5, -10, -0.25, 5, -10, 0.25, -5, -10, 0.25, -5, -10, -0.25, 5, -10, -0.25, -5, 10, -0.25, -5, -10, -0.25, -5, 10, -0.25, 5, 10, -0.25, 5, -10, -0.25, -5, -10, -0.25, 5, 10, 0.25, -5, 10, -0.25, -5, 10, 0.25, 5, 10, 0.25, 5, 10, -0.25, -5, 10, -0.25, 5, -10, 0.25, -5, -10, -0.25, -5, 10, 0.25, -5, 10, 0.25, -5, -10, -0.25, -5, 10, -0.25, -5)
@@ -18,9 +14,8 @@ script = ExtResource("2_72xhj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1566868820]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1508942506]
-material_override = SubResource("StandardMaterial3D_bpux6")
-mesh = ExtResource("2_c38u8")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1087279124]
+mesh = ExtResource("3_c38u8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1611516773]
 shape = SubResource("ConcavePolygonShape3D_kn8yx")

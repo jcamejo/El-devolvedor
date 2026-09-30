@@ -7,8 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://6haui3d6cs1o" path="res://scenes/Ui.tscn" id="5_qifjx"]
 [ext_resource type="Texture2D" uid="uid://v2gcii73qpq7" path="res://materials/textures/orig.png" id="7_4qegb"]
 
-[sub_resource type="Environment" id="Environment_qifjx"]
-background_color = Color(0.17529324, 0.4430956, 0.38653967, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dke22"]
+
+[sub_resource type="Sky" id="Sky_fgtc5"]
+sky_material = SubResource("PanoramaSkyMaterial_dke22")
+
+[sub_resource type="Environment" id="Environment_4qegb"]
+background_color = Color(0.8235294, 0, 0, 1)
+sky = SubResource("Sky_fgtc5")
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7itxr"]
 
@@ -71,12 +77,12 @@ size = Vector3(15, 10, 1)
 
 [node name="Level" type="Node3D" unique_id=1669373357]
 script = ExtResource("1_6vs76")
-run_duration = 10.0
+run_duration = 60.0
 enemy_scene = ExtResource("2_kl8ac")
 enemy_ghost_scene = ExtResource("3_kl8ac")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=428286029]
-environment = SubResource("Environment_qifjx")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=608817942]
+environment = SubResource("Environment_4qegb")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=669045953]
 visible = false
@@ -98,9 +104,10 @@ mesh = SubResource("PlaneMesh_5illg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 2.8901143)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=88199892]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5.7755117, 6.53199, 16.751322)
-light_energy = 2.357
-light_indirect_energy = 3.139
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5.621421, 7.468992, 1.880023)
+light_color = Color(3.0118167, 3.0104775, 3.0016327, 1)
+light_energy = 0.4
+light_indirect_energy = 0.05
 
 [node name="Cylinders" type="Node3D" parent="." unique_id=2021503988]
 
