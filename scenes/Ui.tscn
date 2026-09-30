@@ -3,6 +3,9 @@
 [ext_resource type="LabelSettings" uid="uid://b5klmpd46sks5" path="res://resources/font_settings.tres" id="1_dj8aq"]
 [ext_resource type="Script" uid="uid://csrsokpucer4f" path="res://scripts/ui.gd" id="1_ro3t7"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_fgtc5"]
+font_size = 50
+
 [node name="UI" type="Control" unique_id=2134106640]
 layout_mode = 3
 anchors_preset = 15
@@ -57,3 +60,53 @@ offset_bottom = 40.0
 layout_mode = 2
 text = "3"
 label_settings = ExtResource("1_dj8aq")
+
+[node name="WinPanel" type="Panel" parent="." unique_id=488959120]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 622.0
+offset_top = 207.0
+offset_right = 1222.0
+offset_bottom = 807.0
+
+[node name="Label" type="Label" parent="WinPanel" unique_id=1010514333]
+layout_mode = 0
+offset_left = 194.00002
+offset_top = 158.0
+offset_right = 385.0
+offset_bottom = 227.0
+text = "You win"
+label_settings = SubResource("LabelSettings_fgtc5")
+
+[node name="RestartWin" type="Button" parent="WinPanel" unique_id=1432013884]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 310.0
+offset_right = 317.0
+offset_bottom = 341.0
+text = "Try again"
+
+[node name="LosePanel" type="Panel" parent="." unique_id=596094752]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 622.0
+offset_top = 207.0
+offset_right = 1222.0
+offset_bottom = 807.0
+
+[node name="Label" type="Label" parent="LosePanel" unique_id=1660277627]
+layout_mode = 0
+offset_left = 194.00002
+offset_top = 158.0
+offset_right = 385.0
+offset_bottom = 227.0
+text = "You lose"
+label_settings = SubResource("LabelSettings_fgtc5")
+
+[node name="RestartLose" type="Button" parent="LosePanel" unique_id=724170010]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 310.0
+offset_right = 317.0
+offset_bottom = 341.0
+text = "Try again"

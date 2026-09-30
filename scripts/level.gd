@@ -20,6 +20,7 @@ extends Node
 @onready var back_disposal: Area3D = $BackDisposalDetector
 @onready var ui: Ui = $CanvasLayer/UI
 @onready var current_time: float = run_duration
+@onready var player: Player = $Player
 
 const INITIAL_ROADS=20.0
 const TILE_SIZE=10.0
@@ -31,7 +32,12 @@ var roads: Array[Road] = []
 
 func _process(delta: float) -> void:
 	if current_time <= 0:
-		get_tree().quit()
+		ui.show_win_state()
+		return
+
+	if player.lives == 0:
+		ui.show_lose_state()
+		return
 
 	current_time -= delta
 	ui.update_time(str(int(current_time)))
@@ -40,14 +46,8 @@ func _process(delta: float) -> void:
 	var t: float = clampf(elapsed_time / run_duration, 0.0, 1.0)
 	var affected_t = pow(t, 0.5)
 
-	print('not affected t', t)
-	print('affected t', affected_t)
-
 	front_enemy_timer.wait_time = lerpf(front_enemy_start_interval, front_enemy_end_interval, affected_t)
 	back_enemy_timer.wait_time = lerpf(back_enemy_start_interval, back_enemy_end_interval, affected_t)
-
-	print('front_enemy_timer', front_enemy_timer.wait_time)
-	print('back enemy timer', back_enemy_timer.wait_time)
 
 func _ready() -> void:
 	if enable_enemies:
@@ -64,7 +64,19 @@ func _ready() -> void:
 	front_disposal.connect('area_entered', _dispose)
 	back_disposal.connect('area_entered', _dispose)
 
+	player.connect("hit", on_player_hit)
+
+	ui.connect('restart', _reload_scene)
+
 	#_start_timer()
+
+func _reload_scene() -> void:
+	get_tree().reload_current_scene()
+
+func on_player_hit() -> void:
+	ui.update_lives(str(player.lives))
+
+
 
 func _initialize_timers() -> void:
 	front_enemy_timer.wait_time = front_enemy_start_interval
@@ -119,11 +131,16 @@ func create_road(position):
 	var new_road: Road = road.instantiate()
 	new_road.position = position
 
-	new_road.connect('out_of_bounds', func(body): print('%s out of bounds' % body))
+	new_road.connect('out_of_bounds', func(body: Player):
+		body.report_hit(false)
+		reset_player_position()
+	)
 
 	add_child(new_road)
 	roads.append(new_road)
 
+func reset_player_position() -> void:
+	player.position.x = 0
 
 func _physics_process(_delta: float) -> void:
 	_monitor_roads()
