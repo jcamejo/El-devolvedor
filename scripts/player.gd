@@ -8,6 +8,8 @@ const JUMP_VELOCITY = 4.5
 @onready var invincible = false
 @onready var animation_player = $AnimationPlayer
 
+const INVINCIBLE_TIME = 2
+
 signal hit
 
 func _ready():
@@ -17,25 +19,25 @@ func _ready():
 func report_hit(_body) -> void:
 	if lives == 0:
 		return
-	lives -= 1
-	apply_invincibility()
+	process_hit()
 	hit.emit()
 
 
-func apply_invincibility() -> void:
+func process_hit() -> void:
 	if invincible:
 		return
 
+	invincible = true
+	lives -= 1
 	animation_player.play("invincible")
 
-	enemy_detector.monitoring = false
-	invincible = true
+	enemy_detector.set_deferred("monitoring", false)
 
 	var timer := Timer.new()
-	timer.wait_time = 1
+	timer.wait_time = INVINCIBLE_TIME
 	timer.timeout.connect(func():
 		invincible = false
-		enemy_detector.monitoring = true
+		enemy_detector.set_deferred("monitoring", true)
 	)
 	add_child(timer)
 	timer.start()

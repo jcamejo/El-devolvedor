@@ -71,7 +71,7 @@ size = Vector3(15, 10, 1)
 
 [node name="Level" type="Node3D" unique_id=1669373357]
 script = ExtResource("1_6vs76")
-run_duration = 60.0
+run_duration = 10.0
 enemy_scene = ExtResource("2_kl8ac")
 enemy_ghost_scene = ExtResource("3_kl8ac")
 
