@@ -1,14 +1,18 @@
 [gd_scene format=3 uid="uid://cjuj0e8llvc7o"]
 
 [ext_resource type="Texture2D" uid="uid://326bqn3xfy7k" path="res://resources/sprites/duck_PNG.png" id="1_45dpb"]
+[ext_resource type="Script" uid="uid://fnvoocte7xpi" path="res://scripts/intro.gd" id="1_ywiat"]
+[ext_resource type="LabelSettings" uid="uid://bk6jklv3qtx6m" path="res://resources/main_font.tres" id="2_hc7eg"]
+[ext_resource type="Script" uid="uid://c0s3gg0lsi0qb" path="res://scripts/convo.gd" id="3_aqbct"]
 
-[node name="Control" type="Control" unique_id=239257169]
+[node name="Intro" type="Control" unique_id=239257169]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ywiat")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=322773941]
 custom_minimum_size = Vector2(1920, 1080)
@@ -17,22 +21,111 @@ offset_right = 100.0
 offset_bottom = 100.0
 color = Color(0, 0, 0, 1)
 
-[node name="Duck1" type="Sprite2D" parent="." unique_id=74293735]
-position = Vector2(234, 178)
-scale = Vector2(0.09200354, 0.09200354)
+[node name="Line1" type="Control" parent="." unique_id=1992609022 groups=["dialogues"]]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_aqbct")
+animated_text = "He robado la moto pero hay un detalle"
+typing_speed = 0.05
+text_order = 1
+
+[node name="Duck" type="Sprite2D" parent="Line1" unique_id=74293735]
+position = Vector2(215.19276, 156.4774)
+scale = Vector2(0.077165484, 0.077165484)
 texture = ExtResource("1_45dpb")
 
-[node name="Duck2" type="Sprite2D" parent="." unique_id=1014304258]
-position = Vector2(1685, 376)
-scale = Vector2(-0.09246367, 0.0910337)
+[node name="Convo" type="Label" parent="Line1" unique_id=1698351490]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 110.0
+offset_right = 1013.0
+offset_bottom = 139.0
+label_settings = ExtResource("2_hc7eg")
+
+[node name="Line2" type="Control" parent="." unique_id=617308095 groups=["dialogues"]]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_aqbct")
+animated_text = "Cual?"
+typing_speed = 0.05
+text_order = 2
+
+[node name="Convo" type="Label" parent="Line2" unique_id=2118367709]
+layout_mode = 0
+offset_left = 1342.0
+offset_top = 328.0
+offset_right = 1645.0
+offset_bottom = 357.0
+label_settings = ExtResource("2_hc7eg")
+
+[node name="Duck" type="Sprite2D" parent="Line2" unique_id=1014304258]
+position = Vector2(1677.0001, 358)
+rotation = 3.1415925
+scale = Vector2(0.09246367, -0.0910337)
 texture = ExtResource("1_45dpb")
 
-[node name="Duck3" type="Sprite2D" parent="." unique_id=374585249]
-position = Vector2(1705, 864)
-scale = Vector2(-0.09246367, 0.0910337)
+[node name="Line3" type="Control" parent="." unique_id=617515834 groups=["dialogues"]]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_aqbct")
+animated_text = "Solo va en reversa"
+typing_speed = 0.05
+text_order = 3
+
+[node name="Duck" type="Sprite2D" parent="Line3" unique_id=446546376]
+position = Vector2(193.99998, 513)
+scale = Vector2(0.074798614, 0.074798614)
 texture = ExtResource("1_45dpb")
 
-[node name="Duck4" type="Sprite2D" parent="." unique_id=446546376]
-position = Vector2(208.00002, 618)
-scale = Vector2(0.09200354, 0.09200354)
+[node name="Convo" type="Label" parent="Line3" unique_id=915979922]
+layout_mode = 0
+offset_left = 348.0
+offset_top = 483.0
+offset_right = 671.0
+offset_bottom = 512.0
+label_settings = ExtResource("2_hc7eg")
+
+[node name="Line4" type="Control" parent="." unique_id=829753492 groups=["dialogues"]]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_aqbct")
+animated_text = "Cuack! Recuerda que los controles estan invertidos, derecha es izquierda y viceversa"
+typing_speed = 0.05
+text_order = 4
+
+[node name="Duck" type="Sprite2D" parent="Line4" unique_id=374585249]
+position = Vector2(1709.0001, 699)
+rotation = 3.1415925
+scale = Vector2(0.09246367, -0.0910337)
 texture = ExtResource("1_45dpb")
+
+[node name="Convo" type="Label" parent="Line4" unique_id=1291647306]
+custom_minimum_size = Vector2(550, 75)
+custom_maximum_size = Vector2(550, 150)
+layout_mode = 0
+offset_left = 1017.99994
+offset_top = 623.0
+offset_right = 1568.0
+offset_bottom = 772.0
+scale = Vector2(1, 1.0144864)
+label_settings = ExtResource("2_hc7eg")
+autowrap_mode = 2
+
+[node name="Line5" type="Control" parent="." unique_id=85899173 groups=["dialogues"]]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_aqbct")
+
+[node name="StartButton" type="Button" parent="Line5" unique_id=652844819]
+layout_mode = 0
+offset_left = 861.0
+offset_top = 922.0
+offset_right = 964.0
+offset_bottom = 953.0
+text = "VAMOOOOS"

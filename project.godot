@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="El devolvedor"
-run/main_scene="uid://cdxdhixm1tlv4"
+run/main_scene="uid://cjuj0e8llvc7o"
 config/features=PackedStringArray("4.8", "Forward Plus")
 config/icon="res://icon.svg"
 
