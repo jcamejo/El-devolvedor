@@ -4,22 +4,6 @@
 [ext_resource type="ArrayMesh" uid="uid://dw7tqqkwhybjr" path="res://materials/models/duck2.obj" id="2_3li8b"]
 [ext_resource type="Script" uid="uid://cov655oo65kl5" path="res://scripts/rear_view_camera.gd" id="2_v6fml"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_p0vlq"]
-resource_name = "Player"
-viewport_path = NodePath("Viewports/SubViewportL")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgtc5"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_p0vlq")
-uv1_scale = Vector3(-1, 1, 1)
-uv1_offset = Vector3(1, 0, 0)
-
-[sub_resource type="BoxMesh" id="BoxMesh_p0vlq"]
-resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_fgtc5")
-size = Vector3(1.5, 0.1, 1)
-
 [sub_resource type="ViewportTexture" id="ViewportTexture_fgtc5"]
 resource_name = "Player"
 viewport_path = NodePath("Viewports/SubViewportR")
@@ -34,7 +18,23 @@ uv1_offset = Vector3(1, 0, 0)
 [sub_resource type="BoxMesh" id="BoxMesh_mdl7e"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_3li8b")
-size = Vector3(1.5, 0.1, 1)
+size = Vector3(0.5, 0.1, 0.4)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_p0vlq"]
+resource_name = "Player"
+viewport_path = NodePath("Viewports/SubViewportL")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgtc5"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_p0vlq")
+uv1_scale = Vector3(-1, 1, 1)
+uv1_offset = Vector3(1, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p0vlq"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_fgtc5")
+size = Vector3(0.5, 0.1, 0.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3li8b"]
 size = Vector3(0.5, 1.3005066, 1.4)
@@ -88,8 +88,25 @@ script = ExtResource("1_p0vlq")
 [node name="Model" type="MeshInstance3D" parent="Pivot" unique_id=1580040612]
 mesh = ExtResource("2_3li8b")
 
+[node name="New rears" type="Node3D" parent="Pivot" unique_id=436664300]
+
+[node name="RearViewR2" type="MeshInstance3D" parent="Pivot/New rears" unique_id=1624844410]
+transform = Transform3D(1, -2.9802322e-08, -3.7252903e-09, 0, -4.4703484e-08, 1, 0, -0.99999994, -4.0978193e-08, -0.45441663, 1.0062302, 0.6407887)
+mesh = SubResource("BoxMesh_mdl7e")
+
+[node name="RightMirrorMount" type="Marker3D" parent="Pivot/New rears/RearViewR2" unique_id=1469009530]
+transform = Transform3D(0.99342203, 0.006111315, 0.11434674, 0.114486545, -0.032814264, -0.9928826, -0.002315648, 0.99944264, -0.033298075, 0.71000004, 0.10599995, 0)
+
+[node name="RearViewL2" type="MeshInstance3D" parent="Pivot/New rears" unique_id=1740116793]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.454, 1.006, 0.641)
+mesh = SubResource("BoxMesh_p0vlq")
+
+[node name="LeftMirrorMount" type="Marker3D" parent="Pivot/New rears/RearViewL2" unique_id=1850942675]
+transform = Transform3D(0.99823976, -0.0033105712, -0.0592139, -0.059306372, -0.055723295, -0.99668324, -2.5923639e-09, 0.99844074, -0.055821545, -0.71485054, 0.106256366, 0)
+
 [node name="RearViewL" type="MeshInstance3D" parent="Pivot" unique_id=382508046]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.5099909, 0.82222486, 1.6401066)
+visible = false
 mesh = SubResource("BoxMesh_p0vlq")
 
 [node name="LeftMirrorMount" type="Marker3D" parent="Pivot/RearViewL" unique_id=385135282]
@@ -97,19 +114,27 @@ transform = Transform3D(0.99823976, -0.0033105712, -0.0592139, -0.059306372, -0.
 
 [node name="RearViewR" type="MeshInstance3D" parent="Pivot" unique_id=331308941]
 transform = Transform3D(1, -2.9802322e-08, -3.7252903e-09, 0, -4.4703484e-08, 1, 0, -0.99999994, -4.0978193e-08, -1.3530121, 0.8883519, 1.6400001)
+visible = false
 mesh = SubResource("BoxMesh_mdl7e")
 
 [node name="RightMirrorMount" type="Marker3D" parent="Pivot/RearViewR" unique_id=1964535047]
-transform = Transform3D(0.99342203, 0.006111315, 0.11434674, 0.114486545, -0.032814264, -0.9928826, -0.002315648, 0.99944264, -0.033298075, 0.71000004, 0.10599995, 0)
+transform = Transform3D(0.97727156, 0.009320241, 0.21178606, 0.21197845, -0.032050844, -0.97674894, -0.0023156418, 0.99944246, -0.033298068, 0.18307269, 0.10599995, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1519810858]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0035359561, 0.76861495, 0.20210159)
 shape = SubResource("BoxShape3D_3li8b")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 
+[node name="CameraFrontRearR" type="Camera3D" parent="." unique_id=1515564931]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.3009826, 1.1088638, 0)
+current = true
+
+[node name="CameraFrontRearL" type="Camera3D" parent="." unique_id=1070529753]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.301, 1.109, 0)
+current = true
+
 [node name="MainCamera" type="Camera3D" parent="." unique_id=1854268692]
 transform = Transform3D(-1, 0, -8.742277e-08, -3.652492e-08, 0.90854067, 0.4177964, 7.9427146e-08, 0.4177964, -0.90854067, 0.0010924339, 2.1769094, -1.3948369)
-current = true
 fov = 73.8
 
 [node name="Viewports" type="Node" parent="." unique_id=1398996596]
@@ -128,7 +153,7 @@ mount = NodePath("../../../Pivot/RearViewL/LeftMirrorMount")
 size = Vector2i(1152, 648)
 
 [node name="Camera3D" type="Camera3D" parent="Viewports/SubViewportR" unique_id=1982224752 node_paths=PackedStringArray("mount")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -1.305, 0.364, 1.534)
+transform = Transform3D(0.977639, 0, -0.21029004, 0, 1, 0, 0.21029004, 0, 0.9776391, -1.305, 0.364, 1.534)
 fov = 63.4
 script = ExtResource("2_v6fml")
 mount = NodePath("../../../Pivot/RearViewR/RightMirrorMount")

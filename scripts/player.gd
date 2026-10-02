@@ -7,6 +7,9 @@ const JUMP_VELOCITY = 4.5
 @onready var enemy_detector = $EnemyDetector
 @onready var invincible = false
 @onready var animation_player = $AnimationPlayer
+@onready var camera_front_rear_r = $CameraFrontRearR
+@onready var camera_front_rear_l = $CameraFrontRearL
+@onready var main_camera = $MainCamera
 
 const INVINCIBLE_TIME = 2
 
@@ -14,6 +17,15 @@ signal hit
 
 func _ready():
 	enemy_detector.connect('body_entered', report_hit)
+
+
+func _process(_delta) -> void:
+	if Input.is_action_pressed("close_right_rear"):
+		camera_front_rear_r.make_current()
+	elif Input.is_action_pressed("close_left_rear"):
+		camera_front_rear_l.make_current()
+	else:
+		main_camera.make_current()
 
 
 func report_hit(_body) -> void:

@@ -22,6 +22,7 @@ extends Node
 @onready var current_time: float = run_duration
 @onready var player: Player = $Player
 
+
 const INITIAL_ROADS=20.0
 const TILE_SIZE=10.0
 const OFFSET= int((INITIAL_ROADS * TILE_SIZE) / 2)
@@ -48,6 +49,7 @@ func _process(delta: float) -> void:
 
 	front_enemy_timer.wait_time = lerpf(front_enemy_start_interval, front_enemy_end_interval, affected_t)
 	back_enemy_timer.wait_time = lerpf(back_enemy_start_interval, back_enemy_end_interval, affected_t)
+
 
 func _ready() -> void:
 	if enable_enemies:
@@ -144,13 +146,6 @@ func reset_player_position() -> void:
 
 func _physics_process(_delta: float) -> void:
 	_monitor_roads()
-
-
-func _unhandled_input(_event: InputEvent) -> void:
-	if Input.is_action_pressed("main_camera"):
-		$DebugCamera.current = true
-	else:
-		$DebugCamera.current = false
 
 
 func _add_initial_road(times) -> void:
