@@ -95,14 +95,14 @@ transform = Transform3D(1, -2.9802322e-08, -3.7252903e-09, 0, -4.4703484e-08, 1,
 mesh = SubResource("BoxMesh_mdl7e")
 
 [node name="RightMirrorMount" type="Marker3D" parent="Pivot/New rears/RearViewR2" unique_id=1469009530]
-transform = Transform3D(0.9997821, 0.0016233618, -0.020805642, -0.020739995, -0.033338614, -0.9992288, -0.0023157296, 0.9994425, -0.033297695, -0.5, 0.106, 0)
+transform = Transform3D(0.9997821, 0.0016233618, -0.020805642, -0.020739995, -0.033338614, -0.9992288, -0.0023157296, 0.9994425, -0.033297695, 0, 0.106, 0)
 
 [node name="RearViewL2" type="MeshInstance3D" parent="Pivot/New rears" unique_id=1740116793]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.454, 1.006, 0.641)
 mesh = SubResource("BoxMesh_p0vlq")
 
 [node name="LeftMirrorMount" type="Marker3D" parent="Pivot/New rears/RearViewL2" unique_id=1850942675]
-transform = Transform3D(0.99823964, -0.0033107996, -0.05921417, -0.05930665, -0.055723555, -0.99668324, 1.788139e-07, 0.99844074, -0.055821817, 0.5, 0.106, 0)
+transform = Transform3D(0.99823964, -0.0033107996, -0.05921417, -0.05930665, -0.055723555, -0.99668324, 1.788139e-07, 0.99844074, -0.055821817, 0, 0.106, 0)
 
 [node name="RearViewL" type="MeshInstance3D" parent="Pivot" unique_id=382508046]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.1157794, 1.0344155, 1.6401066)

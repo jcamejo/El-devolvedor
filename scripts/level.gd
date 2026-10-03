@@ -29,7 +29,7 @@ const OFFSET= int((INITIAL_ROADS * TILE_SIZE) / 2)
 
 var roads: Array[Road] = []
 
-@export var enable_enemies: bool = false
+@export var enable_enemies: bool = true
 
 func _process(delta: float) -> void:
 	if current_time <= 0:
