@@ -18,7 +18,7 @@ uv1_offset = Vector3(1, 0, 0)
 [sub_resource type="BoxMesh" id="BoxMesh_mdl7e"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_3li8b")
-size = Vector3(0.5, 0.1, 0.4)
+size = Vector3(0.5, 0.001, 0.4)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_p0vlq"]
 resource_name = "Player"
@@ -34,7 +34,7 @@ uv1_offset = Vector3(1, 0, 0)
 [sub_resource type="BoxMesh" id="BoxMesh_p0vlq"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_fgtc5")
-size = Vector3(0.5, 0.1, 0.4)
+size = Vector3(0.5, 0.001, 0.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3li8b"]
 size = Vector3(0.5, 1.3005066, 1.4)
@@ -95,22 +95,22 @@ transform = Transform3D(1, -2.9802322e-08, -3.7252903e-09, 0, -4.4703484e-08, 1,
 mesh = SubResource("BoxMesh_mdl7e")
 
 [node name="RightMirrorMount" type="Marker3D" parent="Pivot/New rears/RearViewR2" unique_id=1469009530]
-transform = Transform3D(0.99342203, 0.006111315, 0.11434674, 0.114486545, -0.032814264, -0.9928826, -0.002315648, 0.99944264, -0.033298075, 0.71000004, 0.10599995, 0)
+transform = Transform3D(0.9997821, 0.0016233618, -0.020805642, -0.020739995, -0.033338614, -0.9992288, -0.0023157296, 0.9994425, -0.033297695, -0.5, 0.106, 0)
 
 [node name="RearViewL2" type="MeshInstance3D" parent="Pivot/New rears" unique_id=1740116793]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.454, 1.006, 0.641)
 mesh = SubResource("BoxMesh_p0vlq")
 
 [node name="LeftMirrorMount" type="Marker3D" parent="Pivot/New rears/RearViewL2" unique_id=1850942675]
-transform = Transform3D(0.99823976, -0.0033105712, -0.0592139, -0.059306372, -0.055723295, -0.99668324, -2.5923639e-09, 0.99844074, -0.055821545, -0.71485054, 0.106256366, 0)
+transform = Transform3D(0.99823964, -0.0033107996, -0.05921417, -0.05930665, -0.055723555, -0.99668324, 1.788139e-07, 0.99844074, -0.055821817, 0.5, 0.106, 0)
 
 [node name="RearViewL" type="MeshInstance3D" parent="Pivot" unique_id=382508046]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.5099909, 0.82222486, 1.6401066)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.1157794, 1.0344155, 1.6401066)
 visible = false
 mesh = SubResource("BoxMesh_p0vlq")
 
 [node name="LeftMirrorMount" type="Marker3D" parent="Pivot/RearViewL" unique_id=385135282]
-transform = Transform3D(0.99823976, -0.0033105712, -0.0592139, -0.059306372, -0.055723295, -0.99668324, -2.5923639e-09, 0.99844074, -0.055821545, -0.71485054, 0.106256366, 0)
+transform = Transform3D(0.9912195, 0.020403296, -0.13064273, -0.12652956, -0.14052533, -0.9819586, -0.03839382, 0.98986685, -0.13670982, 0.5, 0.106, 0.1)
 
 [node name="RearViewR" type="MeshInstance3D" parent="Pivot" unique_id=331308941]
 transform = Transform3D(1, -2.9802322e-08, -3.7252903e-09, 0, -4.4703484e-08, 1, 0, -0.99999994, -4.0978193e-08, -1.3530121, 0.8883519, 1.6400001)
@@ -118,7 +118,7 @@ visible = false
 mesh = SubResource("BoxMesh_mdl7e")
 
 [node name="RightMirrorMount" type="Marker3D" parent="Pivot/RearViewR" unique_id=1964535047]
-transform = Transform3D(0.97727156, 0.009320241, 0.21178606, 0.21197845, -0.032050844, -0.97674894, -0.0023156418, 0.99944246, -0.033298068, 0.18307269, 0.10599995, 0)
+transform = Transform3D(0.9600718, 0.018518152, 0.27913985, 0.27892768, -0.13997573, -0.9500577, 0.02147949, 0.98998123, -0.13955203, 0.6243939, 0.24428952, 0.52121633)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1519810858]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0035359561, 0.76861495, 0.20210159)
@@ -147,16 +147,16 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3047165, 0.36421394, 1.5338502)
 fov = 63.4
 script = ExtResource("2_v6fml")
-mount = NodePath("../../../Pivot/RearViewL/LeftMirrorMount")
+mount = NodePath("../../../Pivot/New rears/RearViewL2/LeftMirrorMount")
 
 [node name="SubViewportR" type="SubViewport" parent="Viewports" unique_id=126141645]
 size = Vector2i(1152, 648)
 
 [node name="Camera3D" type="Camera3D" parent="Viewports/SubViewportR" unique_id=1982224752 node_paths=PackedStringArray("mount")]
-transform = Transform3D(0.977639, 0, -0.21029004, 0, 1, 0, 0.21029004, 0, 0.9776391, -1.305, 0.364, 1.534)
+transform = Transform3D(0.9776391, 0, -0.21029006, 0, 1, 0, 0.21029006, 0, 0.9776391, -1.305, 0.364, 1.534)
 fov = 63.4
 script = ExtResource("2_v6fml")
-mount = NodePath("../../../Pivot/RearViewR/RightMirrorMount")
+mount = NodePath("../../../Pivot/New rears/RearViewR2/RightMirrorMount")
 
 [node name="EnemyDetector" type="Area3D" parent="." unique_id=2079911039]
 collision_layer = 2
